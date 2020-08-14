@@ -64,7 +64,10 @@ export const pageQuery = graphql`
         }
         allGhostPost(
             sort: { order: DESC, fields: [published_at] },
-            filter: {tags: {elemMatch: {slug: {eq: $slug}}}},
+            filter: {
+              slug: { ne: "data-schema" },
+              tags: { elemMatch: {slug: {eq: $slug}} }
+            },
             limit: $limit,
             skip: $skip
         ) {
