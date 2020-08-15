@@ -5,6 +5,7 @@ import { Helmet } from 'react-helmet'
 
 import { Layout } from '../components/common'
 import { MetaData } from '../components/common/meta'
+import { ReactComponent as Turbulence } from '../filters/turbulence.svg';
 
 /**
 * Single post view (/:slug)
@@ -32,8 +33,9 @@ const Post = ({ data, location }) => {
                             <figure className="post-feature-image">
                                 <img src={ post.feature_image } alt={ post.title } />
                             </figure> : null }
+                        <Turbulence />
                         <section className="post-full-content">
-                            <h1 className="content-title">{post.title}</h1>
+                            <h1 className="content-title">{ post.title }</h1>
 
                             {/* The main post content */ }
                             <section
