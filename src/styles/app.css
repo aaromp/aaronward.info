@@ -780,7 +780,7 @@ h6 {
     top: 2px;
 }
 
-.content-body code {
+.content-body p code {
     vertical-align: middle;
     padding: 0.15em 0.4em 0.15em;
     font-weight: var(--font-regular) !important;
@@ -889,7 +889,7 @@ h6 {
 }
 
 /* prismjs overrides */
-/* div.code-toolbar>.toolbar {
+div.code-toolbar>.toolbar {
   top: 16px !important;
   right: 24px !important;
 }
@@ -898,6 +898,9 @@ div.code-toolbar>.toolbar button {
   background: rgba(224, 224, 224, 0.2) !important;
 }
 
+pre code {
+  background-color: none;
+}
 div.code-toolbar>.toolbar span {
   background: none !important;
 }
@@ -919,14 +922,6 @@ div.code-toolbar>.toolbar a, div.code-toolbar>.toolbar button, div.code-toolbar>
 code[class*=language-], pre[class*=language-] {
   border-radius: 4px !important;
 }
-
-.content-body > pre {
-    overflow: scroll;
-    padding: 16px 20px;
-    background: rgba(255,255,255,0.8);
-    border-radius: 5px;
-    box-shadow: 0 2px 6px -2px rgba(0,0,0,.1), 0 0 1px rgba(0,0,0,.4);
-} */
 
 /* Header
 /* ---------------------------------------------------------- */
@@ -1297,7 +1292,10 @@ code[class*=language-], pre[class*=language-] {
 .kg-bookmark-card a, .kg-bookmark-card a:hover {
   padding-bottom: 0.15rem;
   box-shadow: none;
+  border-radius: 16px;
+  overflow: hidden;
   border: 2px solid var(--color-base);
+  /* box-shadow: 16px 16px 0 0 #696969; */
   /* override wiggle link styles */
   background-image: none;
   background-position: 0;

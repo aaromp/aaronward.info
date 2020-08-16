@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect }  from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
@@ -6,6 +6,15 @@ import { Helmet } from 'react-helmet'
 import { Layout } from '../components/common'
 import { MetaData } from '../components/common/meta'
 import { ReactComponent as Turbulence } from '../filters/turbulence.svg';
+
+import Prism from 'prismjs'
+import "prismjs/themes/prism-tomorrow.css"
+import "prismjs/plugins/line-numbers/prism-line-numbers.css"
+import "prismjs/plugins/line-numbers/prism-line-numbers.js"
+import "prismjs/plugins/toolbar/prism-toolbar.js"
+import "prismjs/plugins/toolbar/prism-toolbar.css"
+import "prismjs/plugins/show-language/prism-show-language.js"
+import "prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard"
 
 /**
 * Single post view (/:slug)
@@ -15,6 +24,15 @@ import { ReactComponent as Turbulence } from '../filters/turbulence.svg';
 */
 const Post = ({ data, location }) => {
     const post = data.ghostPost
+    const html = post.html.replace(
+        new RegExp("<pre><code", "g"), '<pre class="line-numbers"><code'
+    );
+
+    useEffect(() => {
+      setTimeout(() => {
+        Prism.highlightAll();
+      }, 0);
+    });
 
     return (
         <>
@@ -40,7 +58,7 @@ const Post = ({ data, location }) => {
                             {/* The main post content */ }
                             <section
                                 className="content-body load-external-scripts"
-                                dangerouslySetInnerHTML={{ __html: post.html }}
+                                dangerouslySetInnerHTML={{ __html: html }}
                             />
                         </section>
                     </article>
