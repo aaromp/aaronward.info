@@ -16,6 +16,8 @@ import "prismjs/plugins/toolbar/prism-toolbar.css"
 import "prismjs/plugins/show-language/prism-show-language.js"
 import "prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard"
 
+import mediumZoom from 'medium-zoom'
+
 /**
 * Single post view (/:slug)
 *
@@ -30,6 +32,8 @@ const Post = ({ data, location }) => {
 
     useEffect(() => {
       setTimeout(() => {
+        mediumZoom('.kg-image');
+        mediumZoom('.kg-gallery-image img');
         Prism.highlightAll();
       }, 0);
     });
