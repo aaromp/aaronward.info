@@ -128,6 +128,13 @@ export const ghostPostFields = graphql`
         codeinjection_styles
         comment_id
         reading_time
+
+        # Transformed html
+        childHtmlRehype {
+            html
+            htmlAst
+            tableOfContents
+        }
     }
 `
 
@@ -219,6 +226,13 @@ export const ghostPageFields = graphql`
         codeinjection_styles
         comment_id
         reading_time
+
+        # Transformed html
+        childHtmlRehype {
+            html
+            htmlAst
+            tableOfContents
+        }
     }
 `
 

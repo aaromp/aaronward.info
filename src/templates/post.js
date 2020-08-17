@@ -5,6 +5,7 @@ import { Helmet } from 'react-helmet'
 
 import { Layout } from '../components/common'
 import { MetaData } from '../components/common/meta'
+import { TableOfContents } from '../components/common/toc'
 import { ReactComponent as Turbulence } from '../filters/turbulence.svg';
 
 import Prism from 'prismjs'
@@ -26,6 +27,8 @@ import mediumZoom from 'medium-zoom'
 */
 const Post = ({ data, location }) => {
     const post = data.ghostPost
+    const toc = post.childHtmlRehype && post.childHtmlRehype.tableOfContents || []
+    // throw new Error(JSON.stringify(toc))
     const html = post.html.replace(
         new RegExp("<pre><code", "g"), '<pre class="line-numbers"><code'
     );
@@ -54,9 +57,9 @@ const Post = ({ data, location }) => {
                                 <img src={ post.feature_image } alt={ post.title } />
                             </figure> : null }
                         <Turbulence />
+                        <h1 className="content-title">{ post.title }</h1>
                         <section className="post-full-content">
-                            <h1 className="content-title">{ post.title }</h1>
-
+                            <TableOfContents toc={toc} />
                             {/* The main post content */ }
                             <section
                                 className="content-body load-external-scripts"

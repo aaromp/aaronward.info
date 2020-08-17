@@ -67,7 +67,7 @@ exports.shouldUpdateScroll = ({
   routerProps: { location },
   getSavedScrollPosition
 }) => {
-  anchorScroll(location);
+  animatedScroll();
   return true;
 }
 
