@@ -85,7 +85,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                                 <Link to="/">{site.title}</Link> © 2019
                             </div>
                             <div className="site-foot-nav-right">
-                                <Navigation data={site.navigation} navClass="site-foot-nav-item" />
+                                <Navigation data={site.secondary_navigation} navClass="site-foot-nav-item" />
                             </div>
                         </div>
                     </footer>

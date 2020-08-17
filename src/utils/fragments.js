@@ -132,7 +132,6 @@ export const ghostPostFields = graphql`
         # Transformed html
         childHtmlRehype {
             html
-            htmlAst
             tableOfContents
         }
     }
@@ -230,7 +229,6 @@ export const ghostPageFields = graphql`
         # Transformed html
         childHtmlRehype {
             html
-            htmlAst
             tableOfContents
         }
     }
@@ -252,6 +250,10 @@ export const ghostSettingsFields = graphql`
         codeinjection_foot
         codeinjection_styles
         navigation {
+            label
+            url
+        }
+        secondary_navigation {
             label
             url
         }

@@ -3,16 +3,21 @@ const tagsHelper = require(`@tryghost/helpers`).tags
 const _ = require(`lodash`)
 
 const generateItem = function generateItem(siteUrl, post) {
-    const itemUrl = post.canonical_url || `${siteUrl}/${post.slug}/`
-    const html = post.html
-    const htmlContent = cheerio.load(html, { decodeEntities: false, xmlMode: true })
+    const itemUrl = post.canonical_url || `${siteUrl}/${post.slug}/`;
+    const html = post.html;
+    const htmlContent = cheerio.load(html, {
+        decodeEntities: false,
+        xmlMode: true,
+    });
     const item = {
         title: post.title,
         description: post.excerpt,
         guid: post.id,
         url: itemUrl,
         date: post.published_at,
-        categories: _.map(tagsHelper(post, { visibility: `public`, fn: tag => tag }), `name`),
+        categories: _.map(
+            tagsHelper(post, { visibility: `public`, fn: tag => tag }), `name`
+        ),
         author: post.primary_author ? post.primary_author.name : null,
         custom_elements: [],
     }
@@ -46,7 +51,10 @@ const generateItem = function generateItem(siteUrl, post) {
 
 const generateRSSFeed = function generateRSSFeed(siteConfig) {
     return {
-        serialize: ({ query: { allGhostPost } }) => allGhostPost.edges.map(edge => Object.assign({}, generateItem(siteConfig.siteUrl, edge.node))),
+        serialize: ({ query: { allGhostPost } }) =>
+            allGhostPost.edges.map((edge) =>
+                Object.assign({}, generateItem(siteConfig.siteUrl, edge.node))
+            ),
         setup: ({ query: { allGhostSettings } }) => {
             const siteTitle = allGhostSettings.edges[0].node.title || `No Title`
             const siteDescription = allGhostSettings.edges[0].node.description || `No Description`
@@ -55,7 +63,7 @@ const generateRSSFeed = function generateRSSFeed(siteConfig) {
                 description: siteDescription,
                 // generator: `Ghost ` + data.safeVersion,
                 generator: `Ghost 2.9`,
-                feed_url: `${siteConfig.siteUrl}/rss/`,
+                feed_url: `${siteConfig.siteUrl}/rss.xml`,
                 site_url: `${siteConfig.siteUrl}/`,
                 image_url: `${siteConfig.siteUrl}/${siteConfig.siteIcon}`,
                 ttl: `60`,
@@ -116,7 +124,8 @@ const generateRSSFeed = function generateRSSFeed(siteConfig) {
             }
         }
   `,
-        output: `/rss`,
+        output: "/rss.xml",
+        title: "Aaron Ward's RSS Feed",
     }
 }
 
