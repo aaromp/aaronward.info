@@ -8,35 +8,36 @@ import styled from "styled-components"
 export const TocAside = styled.aside`
     && {
         order: 1;
-        font-family: -apple-system, Liberation Sans, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-            Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;
-        line-height: 1.5em;
-        font-size: 1.6rem;
+        font-family: var(--font-body);
         color: #78757A;
         background-color: rgba(255, 255, 255, 0.8);
         border-radius: 5px;
+        margin: 5.6rem auto 3.2rem auto;
 
         @media (min-width: 1170px) {
-            position: sticky;
-            top: 120px;
-            min-width: 260px;
             font-size: 1.4rem;
+            line-height: 2.2rem;
+            position: sticky;
+            top: 12.8rem;
+            min-width: 260px;
             padding: 0 2.4rem;
-            margin-left: 24px;
+            margin-left: 2.4rem;
+            margin-top: 0;
         }
     }
 `
 export const TocTitle = styled.h2`
     &&& {
-        font-size: 1.4rem;
-        letter-spacing: 0.075em;
+        font-family: var(--font-body);
+        font-weight: var(--font-bold);
+        text-transform: uppercase;
+
         margin-top: 1.2rem;
         margin-bottom: 2rem;
-        text-transform: uppercase;
-        font-weight: 700;
 
         @media (min-width: 1170px) {
-            font-size: 1.2rem;
+          font-size: 1.6rem;
+          line-height: 2.4rem;
         }
     }
 `
@@ -70,13 +71,13 @@ export const TocLink = styled.a`
     &&& {
         height: 100%;
         box-shadow: none;
-        color: ${props => (props.state.isActive ? `#54BC4B` : `inherit`)} !important;
-        border-bottom: ${props => (props.state.isActive ? `1px solid #54BC4B` : `none`)};
+        color: ${props => (props.state.isActive ? `#4B922A` : `inherit`)} !important;
+        border-bottom: ${props => (props.state.isActive ? `1px solid #4B922A` : `none`)};
         text-decoration: none;
 
         &:hover {
-            color: #54BC4B  !important;
-            border-bottom: 1px solid #54BC4B;
+            color: #4B922A  !important;
+            border-bottom: 1px solid #4B922A;
             text-decoration: none;
             box-shadow: none;
         }
@@ -93,7 +94,7 @@ export const TocLink = styled.a`
         }
 
         &::before {
-            background-color: ${props => (props.state.isActive ? `#54BC4B` : `#EEE`)};
+            background-color: ${props => (props.state.isActive ? `#4B922A` : `#EEE`)};
         }
     }
 `
