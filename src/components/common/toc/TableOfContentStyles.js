@@ -22,6 +22,7 @@ export const TocAside = styled.aside`
             min-width: 260px;
             font-size: 1.4rem;
             padding: 0 2.4rem;
+            margin-left: 24px;
         }
     }
 `
