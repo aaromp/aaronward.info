@@ -31,11 +31,9 @@ const Post = ({ data, location }) => {
     );
 
     useEffect(() => {
-      setTimeout(() => {
         mediumZoom('.kg-image');
         mediumZoom('.kg-gallery-image img');
         Prism.highlightAll();
-      }, 0);
     });
 
     return (

@@ -27,6 +27,35 @@ var trustAllScripts = function () {
     }
 };
 
-exports.onRouteUpdate = function () {
-    trustAllScripts();
+const getOffsetTop = element => {
+  let offsetTop = 0;
+  while (element) {
+    offsetTop += element.offsetTop;
+    element = element.offsetParent;
+  }
+  return offsetTop;
+}
+
+var anchorScroll = function (location) {
+  if (location && location.hash) {
+    setTimeout(() => {
+      const el = document.querySelector(location.hash)
+      const offsetTop = getOffsetTop(el);
+      if (el) window.scrollTo(0, offsetTop - 20)
+    }, 0);
+  }
+}
+
+exports.shouldUpdateScroll = ({
+  routerProps: { location },
+  getSavedScrollPosition
+}) => {
+  anchorScroll(location);
+  return true;
+}
+
+exports.onRouteUpdate = ({location}) => {
+  trustAllScripts();
+  anchorScroll(location);
+  return true;
 };
