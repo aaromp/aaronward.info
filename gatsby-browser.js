@@ -1,4 +1,7 @@
 /* eslint-disable */
+
+var $ =  require('jquery/dist/jquery')
+
 /**
  * Trust All Scripts
  *
@@ -36,7 +39,7 @@ const getOffsetTop = element => {
   return offsetTop;
 }
 
-var anchorScroll = function (location) {
+var anchorScroll = function(location) {
   if (location && location.hash) {
     setTimeout(() => {
       const el = document.querySelector(location.hash)
@@ -44,6 +47,20 @@ var anchorScroll = function (location) {
       if (el) window.scrollTo(0, offsetTop - 20)
     }, 0);
   }
+}
+
+var animatedScroll = function() {
+  $('a[href*="#"]').on('click', function (e) {
+    e.preventDefault()
+
+    $('html, body').animate(
+      {
+        scrollTop: $($(this).attr('href')).offset().top,
+      },
+      400,
+      'swing'
+    )
+  })
 }
 
 exports.shouldUpdateScroll = ({
@@ -56,6 +73,6 @@ exports.shouldUpdateScroll = ({
 
 exports.onRouteUpdate = ({location}) => {
   trustAllScripts();
-  anchorScroll(location);
+  animatedScroll();
   return true;
 };

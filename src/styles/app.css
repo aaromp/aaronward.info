@@ -632,10 +632,12 @@ h6 {
 @media (max-width: 500px) {
     .content-title {
         margin: 0.8em 0;
-        font-size: 3.4rem;
+        font-size: 7.2rem;
+        line-height: 8rem;
+        letter-spacing: 0.02em;
     }
     .content {
-        font-size: 1.8rem;
+        /* font-size: 1.8rem; */
     }
 }
 
@@ -920,7 +922,7 @@ div.code-toolbar>.toolbar a, div.code-toolbar>.toolbar button, div.code-toolbar>
 }
 
 code[class*=language-], pre[class*=language-] {
-  border-radius: 4px !important;
+  border-radius: 16px !important;
 }
 
 /* Header
