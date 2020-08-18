@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 
+import { ReactComponent as Goo } from '../filters/goo.svg';
 import { Layout, PostCard, Pagination } from '../components/common'
 import { MetaData } from '../components/common/meta'
 
@@ -40,6 +41,7 @@ const Author = ({ data, location, pageContext }) => {
                             {author.profile_image && <img src={author.profile_image} alt={author.name} />}
                         </div>
                     </header>
+                    <Goo />
                     <section className="post-feed">
                         {posts.map(({ node }) => (
                             // The tag below includes the markup for each post - components/common/PostCard.js
