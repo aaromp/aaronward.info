@@ -31,6 +31,7 @@ what's here to work the way you'd like it to.
     --color-secondary-weak: #EFEDF9;
     --color-highlight: #ECF39E;
     --color-selection: #ECF39E;
+    --color-goo: #fffffe;
 
     --color-secondary-bg: #f0f6f9;
     --color-secondary: #bFd200;
@@ -1040,15 +1041,17 @@ code[class*=language-], pre[class*=language-] {
 /* ---------------------------------------------------------- */
 
 .post-feed {
-    display: grid;
+    /* display: grid; */
+    display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
-    grid-gap: 30px;
-    grid-template-columns: 1fr 1fr 1fr;
+    /* grid-gap: 32px;
+    grid-template-columns: 1fr 1fr; */
 }
 
 @media (max-width: 980px) {
     .post-feed {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
     }
 }
 @media (max-width: 680px) {
@@ -1058,80 +1061,96 @@ code[class*=language-], pre[class*=language-] {
 }
 
 .post-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     color: inherit;
     text-decoration: none;
+    height: 330px;
+    /* width: calc(50% - 3.2rem); */
+    width: 100%;
+    margin: 1.6rem;
+    background: rgba(0, 0, 0, 0) no-repeat center center;
+    background-size: cover;
+    border-radius: 32px;
 }
+
+/* @media (max-width: 980px) {
+  .post-card {
+      width: 100%;
+  }
+}
+
+.post-card:nth-child(3n) {
+  width: 100%;
+} */
 
 .post-card:hover {
     text-decoration: none;
 }
 
+.post-card-header {
+  display: flex;
+  flex-direction: row;
+  align-items: left;
+  justify-content: flex-end;
+  margin: 4rem 4rem 0 0;
+  color: var(--color-base);
+  filter: url('#goo_svg__goo');
+}
+
 .post-card-tags {
     margin: 0 0 5px 0;
-    font-size: 1.4rem;
-    line-height: 1.15em;
-    color: var(--color-secondary);
-}
-
-
-.post-card-title {
-    margin: 0 0 10px 0;
-    padding: 0;
-}
-
-.post-card-excerpt {
-    font-size: 1.6rem;
-    line-height: 1.55em;
-}
-
-.post-card-image {
-    margin: 0 0 10px 0;
-    width: auto;
-    height: 200px;
-    background: var(--color-secondary) no-repeat center center;
-    background-size: cover;
+    color: var(--color-base);
+    font-family: var(--font-body);
+    font-weight: var(--font-semibold);
+    font-size: 1.2rem;
+    line-height: 2rem;
+    text-transform: uppercase;
+    box-decoration-break: clone;
+    background: var(--color-goo);
+    filter: url('#goo_svg__goo');
+    padding: 1.6rem;
 }
 
 .post-card-footer {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 10px 0 0 0;
-    color: var(--color-secondary);
-}
-
-.post-card-footer-left {
-    display: flex;
-    align-items: center;
-}
-
-.post-card-footer-right {
-    display: flex;
     flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-basis: auto;
+    margin: 0 4rem 4rem 4rem;
+    color: var(--color-base);
+    filter: url('#goo_svg__goo');
 }
 
-.post-card-avatar {
-    width: 30px;
-    height: 30px;
-    margin: 0 7px 0 0;
-    border-radius: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.post-card-metadata {
+    color: var(--color-base);
+    font-family: var(--font-body);
+    font-weight: var(--font-light);
+    font-size: 1.6rem;
+    line-height: 2rem;
+    margin: 0;
+    padding: 0;
+    box-decoration-break: clone;
+    background: var(--color-goo);
+    filter: url('#goo_svg__goo');
+    padding: 1.6rem  1.6rem 0  1.6rem;
 }
 
-.post-card-avatar .author-profile-image {
-    display: block;
-    width: 100%;
-    background: var(--color-secondary);
-    border-radius: 100%;
-    object-fit: cover;
+.post-card-title {
+    color: var(--color-base);
+    font-family: var(--font-title);
+    font-weight: var(--font-regular);
+    font-size: 5.6rem;
+    line-height: 6.4rem;
+    margin: 0;
+    padding: 0;
+    box-decoration-break: clone;
+    background: var(--color-goo);
+    filter: url('#goo_svg__goo');
+    padding: 0  1.6rem  1.6rem  1.6rem;
 }
-
-.post-card-avatar .default-avatar {
-    width: 26px;
-}
-
 
 /* Tag Archives
 /* ---------------------------------------------------------- */

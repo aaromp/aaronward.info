@@ -22,6 +22,8 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
     const site = data.allGhostSettings.edges[0].node
     const twitterUrl = site.twitter ? `https://twitter.com/${site.twitter.replace(/^@/, ``)}` : null
     const facebookUrl = site.facebook ? `https://www.facebook.com/${site.facebook.replace(/^\//, ``)}` : null
+    const rssUrl = `https://feedly.com/i/subscription/feed/${config.siteUrl}/rss.xml` // is feedly really so popular?
+    const showSocial = false;
 
     return (
         <>
@@ -37,35 +39,38 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                     {/* The main header section on top of the screen */}
                     <header className="site-head" style={{ ...site.cover_image && { backgroundImage: `url(${site.cover_image})` } }}>
                         <div className="container">
-                            <div className="site-mast">
-                                <div className="site-mast-left">
-                                    <Link to="/">
-                                        {site.logo ?
-                                            <img className="site-logo" src={site.logo} alt={site.title} />
-                                            : <Img fixed={data.file.childImageSharp.fixed} alt={site.title} />
-                                        }
-                                    </Link>
-                                </div>
-                                <div className="site-mast-right">
-                                    { site.twitter && <a href={ twitterUrl } className="site-nav-item" target="_blank" rel="noopener noreferrer"><img className="site-nav-icon" src="/images/icons/twitter.svg" alt="Twitter" /></a>}
-                                    { site.facebook && <a href={ facebookUrl } className="site-nav-item" target="_blank" rel="noopener noreferrer"><img className="site-nav-icon" src="/images/icons/facebook.svg" alt="Facebook" /></a>}
-                                    <a className="site-nav-item" href={ `https://feedly.com/i/subscription/feed/${config.siteUrl}/rss/` } target="_blank" rel="noopener noreferrer"><img className="site-nav-icon" src="/images/icons/rss.svg" alt="RSS Feed" /></a>
-                                </div>
-                            </div>
+                            { showSocial ?
+                                <div className="site-mast">
+                                    <div className="site-mast-left">
+                                        <Link to="/">
+                                            {site.logo ?
+                                                <img className="site-logo" src={site.logo} alt={site.title} />
+                                                : <Img fixed={data.file.childImageSharp.fixed} alt={site.title} />
+                                            }
+                                        </Link>
+                                    </div>
+                                    <div className="site-mast-right">
+                                        { site.twitter && <a href={ twitterUrl } className="site-nav-item" target="_blank" rel="noopener noreferrer"><img className="site-nav-icon" src="/images/icons/twitter.svg" alt="Twitter" /></a>}
+                                        { site.facebook && <a href={ facebookUrl } className="site-nav-item" target="_blank" rel="noopener noreferrer"><img className="site-nav-icon" src="/images/icons/facebook.svg" alt="Facebook" /></a>}
+                                        <a href={ rssUrl } className="site-nav-item" target="_blank" rel="noopener noreferrer"><img className="site-nav-icon" src="/images/icons/rss.svg" alt="RSS Feed" /></a>
+                                    </div>
+                                </div> : null }
                             { isHome ?
                                 <div className="site-banner">
                                     <h1 className="site-banner-title">{site.title}</h1>
                                     <p className="site-banner-desc">{site.description}</p>
                                 </div> :
-                                null}
+                                null }
                             <nav className="site-nav">
                                 <div className="site-nav-left">
                                     {/* The navigation items as setup in Ghost */}
                                     <Navigation data={site.navigation} navClass="site-nav-item" />
                                 </div>
-                                <div className="site-nav-right">
-                                    <Link className="site-nav-button" to="/about">About</Link>
-                                </div>
+                                { isHome ?
+                                    <div className="site-nav-right">
+                                        <Link className="site-nav-button" to="/about">About</Link>
+                                    </div> :
+                                    null }
                             </nav>
                         </div>
                     </header>
@@ -82,7 +87,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                     <footer className="site-foot">
                         <div className="site-foot-nav container">
                             <div className="site-foot-nav-left">
-                                <Link to="/">{site.title}</Link> © 2019
+                                <Link to="/">{site.title}</Link> &copy; {new Date().getFullYear()}
                             </div>
                             <div className="site-foot-nav-right">
                                 <Navigation data={site.secondary_navigation} navClass="site-foot-nav-item" />
