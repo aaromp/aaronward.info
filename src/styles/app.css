@@ -33,7 +33,7 @@ what's here to work the way you'd like it to.
     --color-selection: #ECF39E;
     --color-goo: #fffffe;
 
-    --color-secondary-bg: #f0f6f9;
+    --color-secondary-bg: #353535;
     --color-secondary: #bFd200;
     --color-border: #e1eaef;
     --color-success: #80b912;
@@ -382,7 +382,7 @@ body {
     font-style: normal;
     letter-spacing: 0;
     text-rendering: optimizeLegibility;
-    background: #fff;
+    background: var(--color-background);
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -612,7 +612,7 @@ h6 {
 .post-full-content {
     max-width: 720px;
     margin: 0 auto;
-    background: #fff;
+    background: var(--color-background);
 }
 @media (min-width: 1170px) {
   .post-full-content {
@@ -735,7 +735,7 @@ h6 {
     white-space: pre-wrap;
     padding: 20px;
     background: var(--color-base);
-    color: #fff;
+    color: var(--color-background);
     border-radius: 12px;
 }
 
@@ -749,7 +749,7 @@ h6 {
 /* TODO remove whitespace if there's ever a fix to the svg filter issue */
 .content-body blockquote::before {
     content: "\A0 ! \A0";
-    animation: squigglevision 0.4s infinite alternate;
+    animation: turbulence 0.4s infinite alternate;
     font-family: var(--font-title);
     font-weight: var(--font-black);
     font-size: 10rem;
@@ -807,7 +807,7 @@ h6 {
 }
 
 .content-body a[id^="fn"]:hover, .content-body a[href^="#fnref"]:hover {
-    animation: squigglevision 0.4s infinite alternate;
+    animation: turbulence 0.4s infinite alternate;
     padding-bottom: 0;
     box-shadow: none;
 }
@@ -836,7 +836,7 @@ h6 {
 }
 
 /* .content-body img:not(.lightense-wrap img, .kg-bookmark-container img):hover {
-  animation: squigglevision 0.4s infinite alternate;
+  animation: turbulence 0.4s infinite alternate;
 } */
 
 /* TODO: remove after wobble anchor has been encapsulated */
@@ -939,8 +939,8 @@ code[class*=language-], pre[class*=language-] {
 .site-head {
     padding-top: 20px;
     padding-bottom: 20px;
-    color: #fff;
-    background: var(--color-base);
+    color: var(--color-base);
+    background: var(--color-background);
     background-position: center;
     background-size: cover;
 }
@@ -948,7 +948,7 @@ code[class*=language-], pre[class*=language-] {
 .site-nav-item {
     display: inline-block;
     padding: 5px 10px;
-    color: #fff;
+    color: var(--color-base);
     opacity: 0.7;
 }
 
@@ -991,7 +991,7 @@ code[class*=language-], pre[class*=language-] {
 .site-banner-title {
     margin: 0;
     padding: 0;
-    color: #fff;
+    color: var(--color-base);
     font-size: 4rem;
     line-height: 1.3em;
 }
@@ -1009,17 +1009,19 @@ code[class*=language-], pre[class*=language-] {
     align-items: center;
     justify-content: space-between;
     margin: 15px 0 0 0;
+    font-family: var(--font-body);
+    font-weight: var(--font-regular);
 }
 
 .site-nav-left {
-    margin: 0 20px 0 -10px;
+    margin: 0 1.6rem 0 1.6rem;
 }
 
 .site-nav-button {
     display: inline-block;
     padding: 5px 10px;
-    border: #fff 1px solid;
-    color: #fff;
+    border: var(--color-base) 1px solid;
+    color: var(--color-base);
     font-size: 1.3rem;
     line-height: 1em;
     border-radius: var(--radius);
@@ -1034,7 +1036,7 @@ code[class*=language-], pre[class*=language-] {
 /* ---------------------------------------------------------- */
 
 .site-main {
-    padding: 4vw 0;
+    padding: 0 0 4vw 0;
 }
 
 /* Index
@@ -1094,6 +1096,7 @@ code[class*=language-], pre[class*=language-] {
     transform: scale(1) rotate(0.01deg);
   }
 }
+
 /* .post-card-title, .post-card-metadata, .post-card-tags {
   animation: pulse-out 0.6s ease;
   animation-direction: normal;
@@ -1125,23 +1128,13 @@ code[class*=language-], pre[class*=language-] {
         animation-direction: alternate;
     }
 
-    .post-card .post-card-tags {
-        animation: pulse-out 0.8s ease-in-out;
-        animation-direction: normal;
-    }
-
-    .post-card .post-card-metadata {
-        animation: pulse-out 0.8s ease-in-out;
-        animation-direction: normal;
-    }
-
+    .post-card .post-card-tags,
+    .post-card .post-card-metadata,
     .post-card .post-card-title {
         animation: pulse-out 0.8s ease-in-out;
         animation-direction: normal;
     }
 }
-
-
 
 /* .post-card-title, .post-card-metadata, .post-card-tags {
   animation: pulse 0.6s ease infinite;
@@ -1155,7 +1148,7 @@ code[class*=language-], pre[class*=language-] {
     }
 
     .post-card:hover {
-        transform: rotate(0deg) scale(1.05, 1.05);
+        transform: rotate(0.01deg) scale(1.05, 1.05);
         transition: transform 0.1s ease;
     }
 }
@@ -1256,6 +1249,66 @@ code[class*=language-], pre[class*=language-] {
     .post-card-metadata {
       font-size: 1.4rem;
       line-height: 2.2rem;
+    }
+}
+
+.mast-text {
+  display: inline-block;
+  font-weight: var(--font-regular);
+  color: var(--color-secondary-bg);
+  font-size: 9.6rem;
+  line-height: 10.4rem;
+  animation: turbulence 1s infinite alternate;
+  padding: 1.6rem;
+  margin: 3.6rem 0 0 0;
+}
+
+@media (max-width: 500px) {
+    .mast-text {
+        font-size: 8rem;
+        line-height: 8.8rem;
+        margin: 2.4rem 0 0 0;
+    }
+}
+
+/* the rotation is for firefox performance */
+@keyframes shrink {
+  0%{
+    transform: scale(1, 1) rotate(0.01deg);
+    opacity: 1;
+  }
+  100%{
+    transform: scale(1, 0.3) rotate(0.01deg);
+    opacity: 0.9;
+  }
+}
+
+@keyframes shrink-out {
+  0%{
+    transform: scale(1, 0.3) rotate(0.01deg);
+    opacity: 0.9;
+  }
+  100%{
+    transform: scale(1, 1) rotate(0.01deg);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    /* stand up if on home page or if unhovered */
+    .is-home .mast-letter, .mast-letter.unhovered {
+        transform-origin: bottom;
+        display: inline-block;
+        animation: shrink-out 1.6s ease-in;
+        animation-direction: normal;
+    }
+
+    /* knock down if hovered */
+    .mast-letter:hover, .mast-letter.hovered {
+        display: inline-block;
+        transform-origin: bottom;
+        animation: shrink 0.2s ease-out forwards;
+        animation-direction: normal;
     }
 }
 
@@ -1384,10 +1437,12 @@ code[class*=language-], pre[class*=language-] {
 /* ---------------------------------------------------------- */
 
 .site-foot {
-    padding: 20px 0 40px 0;
+    padding: 20px 1.6rem 40px 1.6rem;
     color: rgba(255,255,255,0.7);
     font-size: 1.3rem;
-    background: var(--color-base);
+    font-family: var(--font-body);
+    font-weight: var(--font-bold);
+    background: var(--color-secondary-bg);
 }
 
 .site-foot-nav {
@@ -1603,7 +1658,7 @@ margin: auto;
 }
 
 .content-body td:hover {
-  animation: squigglevision 0.4s infinite alternate;
+  animation: turbulence 0.4s infinite alternate;
 }
 
 /* Gallery Styles

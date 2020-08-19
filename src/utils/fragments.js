@@ -53,9 +53,9 @@ export const ghostPostFields = graphql`
         visibility
 
         # Dates formatted
-        created_at_pretty: created_at(formatString: "DD MMMM, YYYY")
-        published_at_pretty: published_at(formatString: "DD MMMM, YYYY")
-        updated_at_pretty: updated_at(formatString: "DD MMMM, YYYY")
+        created_at_pretty: created_at(formatString: "DD MMMM YYYY")
+        published_at_pretty: published_at(formatString: "DD MMMM YYYY")
+        updated_at_pretty: updated_at(formatString: "DD MMMM YYYY")
 
         # Dates unformatted
         created_at
@@ -150,9 +150,9 @@ export const ghostPageFields = graphql`
         visibility
 
         # Dates formatted
-        created_at_pretty: created_at(formatString: "DD MMMM, YYYY")
-        published_at_pretty: published_at(formatString: "DD MMMM, YYYY")
-        updated_at_pretty: updated_at(formatString: "DD MMMM, YYYY")
+        created_at_pretty: created_at(formatString: "DD MMMM YYYY")
+        published_at_pretty: published_at(formatString: "DD MMMM YYYY")
+        updated_at_pretty: updated_at(formatString: "DD MMMM YYYY")
 
         # Dates unformatted
         created_at

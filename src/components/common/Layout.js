@@ -4,7 +4,8 @@ import { Helmet } from 'react-helmet'
 import { Link, StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 
-import { Navigation } from '.'
+import { Navigation, MastText } from '.'
+import { ReactComponent as Turbulence } from '../../filters/turbulence.svg';
 import config from '../../utils/siteConfig'
 
 // Styles
@@ -24,6 +25,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
     const facebookUrl = site.facebook ? `https://www.facebook.com/${site.facebook.replace(/^\//, ``)}` : null
     const rssUrl = `https://feedly.com/i/subscription/feed/${config.siteUrl}/rss.xml` // is feedly really so popular?
     const showSocial = false;
+    const disabled = false;
 
     return (
         <>
@@ -39,6 +41,10 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                     {/* The main header section on top of the screen */}
                     <header className="site-head" style={{ ...site.cover_image && { backgroundImage: `url(${site.cover_image})` } }}>
                         <div className="container">
+                            <Turbulence />
+                            <Link to="/">
+                                <MastText isHome={ isHome }>Aaron Ward</MastText>
+                            </Link>
                             { showSocial ?
                                 <div className="site-mast">
                                     <div className="site-mast-left">
@@ -55,7 +61,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                                         <a href={ rssUrl } className="site-nav-item" target="_blank" rel="noopener noreferrer"><img className="site-nav-icon" src="/images/icons/rss.svg" alt="RSS Feed" /></a>
                                     </div>
                                 </div> : null }
-                            { isHome ?
+                            { disabled ?
                                 <div className="site-banner">
                                     <h1 className="site-banner-title">{site.title}</h1>
                                     <p className="site-banner-desc">{site.description}</p>
@@ -66,7 +72,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                                     {/* The navigation items as setup in Ghost */}
                                     <Navigation data={site.navigation} navClass="site-nav-item" />
                                 </div>
-                                { isHome ?
+                                { disabled ?
                                     <div className="site-nav-right">
                                         <Link className="site-nav-button" to="/about">About</Link>
                                     </div> :

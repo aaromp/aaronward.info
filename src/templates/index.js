@@ -20,7 +20,7 @@ const Index = ({ data, location, pageContext }) => {
     return (
         <>
             <MetaData location={location} />
-            <Layout isHome={false}>
+            <Layout isHome={true}>
                 <div className="container">
                     <Goo />
                     <section className="post-feed">
