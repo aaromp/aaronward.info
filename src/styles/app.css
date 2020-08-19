@@ -1117,6 +1117,7 @@ code[class*=language-], pre[class*=language-] {
        (-webkit-min-device-pixel-ratio:0) and
        (min-resolution:.001dpcm) and
        (prefers-reduced-motion: no-preference) {
+
     .post-card:hover .post-card-tags  {
         animation: pulse 0.8s ease-in-out -0.3s infinite;
         animation-direction: alternate;
@@ -1145,15 +1146,50 @@ code[class*=language-], pre[class*=language-] {
   animation-direction: alternate;
 } */
 
+/* @keyframes rotate {
+  0%{
+    transform: rotate(0.01deg);
+  }
+  100%{
+    transform: rotate(-1.4deg);
+  }
+}
+
+@keyframes rotate-out {
+  0%{
+    transform: rotate(-1.4deg);
+  }
+  100%{
+    transform: rotate(0.01deg);;
+  }
+}
+
+@media (min-width: 680px) and (prefers-reduced-motion: no-preference) {
+    .post-card  {
+        animation: 0.1s ease 0s 1 normal forwards running pulse-out,
+                   0.1s ease 0.1s 1 normal forwards running rotate;
+    }
+
+    .post-card:hover {
+        animation: 0.1s ease 0s 1 normal forwards running rotate-out,
+                   0.8s ease 0.1s infinite alternate none running pulse;
+    }
+} */
+
+/* rotation too janky on firefox */
 @media (min-width: 680px) and (prefers-reduced-motion: no-preference) {
     .post-card  {
       transform: rotate(-1.4deg);
       transition: transform 0.1s ease;
+      -moz-transform: none;
+      -moz-transition: none;
     }
 
     .post-card:hover {
-        transform: rotate(0.01deg) scale(1.05, 1.05);
+        transform: rotate(0.01deg) scale(1.05, 1.025);
         transition: transform 0.1s ease;
+        -moz-transform: none;
+        -moz-transition: none;
     }
 }
 /* @media (max-width: 980px) {
