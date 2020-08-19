@@ -1012,7 +1012,7 @@ code[class*=language-], pre[class*=language-] {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 15px 0 0 0;
+    margin: 0;
     font-family: var(--font-body);
     font-weight: var(--font-regular);
 }
@@ -1264,7 +1264,7 @@ code[class*=language-], pre[class*=language-] {
   line-height: 10.4rem;
   animation: turbulence 1s infinite alternate;
   padding: 1.6rem;
-  margin: 3.6rem 0 0 0;
+  margin: 3.6rem 0 1.6rem 0;
 }
 
 @media (max-width: 500px) {
@@ -1276,43 +1276,55 @@ code[class*=language-], pre[class*=language-] {
 }
 
 /* the rotation is for firefox performance */
-@keyframes shrink {
-  0%{
-    transform: scale(1, 1) rotate(0.01deg);
-    opacity: 1;
-  }
-  100%{
-    transform: scale(1, 0.3) rotate(0.01deg);
-    opacity: 0.9;
-  }
-}
-
 @keyframes shrink-out {
   0%{
     transform: scale(1, 0.3) rotate(0.01deg);
-    opacity: 0.9;
   }
   100%{
     transform: scale(1, 1) rotate(0.01deg);
-    opacity: 1;
+  }
+}
+
+@keyframes shrink {
+  0%{
+    transform: scale(1, 1) rotate(0.01deg);
+  }
+  100%{
+    transform: scale(1, 0.3) rotate(0.01deg);
   }
 }
 
 @media (prefers-reduced-motion: no-preference) {
-    /* stand up if on home page or if unhovered */
-    .is-home .mast-letter, .mast-letter.unhovered {
+    /* stand up if on home page */
+    .is-home .mast-letter {
         display: inline-block;
         transform-origin: bottom;
         animation: shrink-out 1.6s ease-in;
         animation-direction: normal;
     }
 
-    /* knock down if hovered */
-    .mast-letter:hover, .mast-letter.hovered {
+    /* stand up if knocked down */
+    .mast-letter {
         display: inline-block;
         transform-origin: bottom;
-        animation: shrink 0.2s ease-out forwards;
-        animation-direction: normal;
+        transform: scale(1, 1) rotate(0.01deg);
+        transition: all 1.6s ease-in;
+    }
+
+    /* knock down if hovered */
+    .mast-letter:hover {
+        display: inline-block;
+        transform-origin: bottom;
+        transform: scale(1, 0.3) rotate(0.01deg);
+        transition: all 0.1s ease-out;
+    }
+
+    /* knock down all letters if activated */
+    .mast-text:active .mast-letter {
+        display: inline-block;
+        transform-origin: bottom;
+        transform: scale(1, 0.3) rotate(0.01deg);
+        transition: all 0.1s ease-out;
     }
 }
 
