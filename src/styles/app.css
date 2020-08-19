@@ -1049,7 +1049,7 @@ code[class*=language-], pre[class*=language-] {
     grid-template-columns: 1fr 1fr; */
 }
 
-@media (max-width: 980px) {
+/* @media (max-width: 980px) {
     .post-feed {
         grid-template-columns: 1fr;
     }
@@ -1058,7 +1058,7 @@ code[class*=language-], pre[class*=language-] {
     .post-feed {
         grid-template-columns: 1fr;
     }
-}
+} */
 
 .post-card {
     display: flex;
@@ -1070,7 +1070,7 @@ code[class*=language-], pre[class*=language-] {
     /* width: calc(50% - 3.2rem); */
     width: 100%;
     margin: 1.6rem;
-    background: rgba(0, 0, 0, 0) no-repeat center center;
+    background: var(--color-secondary-weak) no-repeat center center;
     background-size: cover;
     border-radius: 32px;
 }
@@ -1109,6 +1109,8 @@ code[class*=language-], pre[class*=language-] {
     text-transform: uppercase;
     box-decoration-break: clone;
     background: var(--color-goo);
+    text-shadow: 0 0 1rem var(--color-goo), 0 0 1rem var(--color-goo),
+                 0 0 1rem var(--color-goo), 0 0 1rem var(--color-goo);
     filter: url('#goo_svg__goo');
     padding: 1.6rem;
 }
@@ -1134,6 +1136,8 @@ code[class*=language-], pre[class*=language-] {
     padding: 0;
     box-decoration-break: clone;
     background: var(--color-goo);
+    text-shadow: 0 0 1rem var(--color-goo), 0 0 1rem var(--color-goo),
+                 0 0 1rem var(--color-goo), 0 0 1rem var(--color-goo);
     filter: url('#goo_svg__goo');
     padding: 1.6rem  1.6rem 0  1.6rem;
 }
@@ -1148,8 +1152,26 @@ code[class*=language-], pre[class*=language-] {
     padding: 0;
     box-decoration-break: clone;
     background: var(--color-goo);
+    text-shadow: 0 0 1rem var(--color-goo), 0 0 1rem var(--color-goo),
+                 0 0 1rem var(--color-goo), 0 0 1rem var(--color-goo);
     filter: url('#goo_svg__goo');
     padding: 0  1.6rem  1.6rem  1.6rem;
+}
+
+@media (max-width: 680px) {
+    .post-card-tags {
+        font-size: 1rem;
+        line-height: 0.8rem;
+    }
+    .post-card-title {
+      max-height: 144px;
+      font-size: 4rem;
+      line-height: 4.8rem;
+    }
+    .post-card-metadata {
+      font-size: 1.4rem;
+      line-height: 2.2rem;
+    }
 }
 
 /* Tag Archives
