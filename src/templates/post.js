@@ -56,7 +56,6 @@ const Post = ({ data, location }) => {
                             <figure className="post-feature-image">
                                 <img src={ post.feature_image } alt={ post.title } />
                             </figure> : null }
-                        <Turbulence />
                         <h1 className="content-title">{ post.title }</h1>
                         <section className="post-full-content">
                             <TableOfContents toc={toc} />

@@ -1,4 +1,4 @@
-<svg style="position:absolute; height:0; overflow: visible;">
+<svg style="position: absolute;" width="0" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1">
   <defs>
     <filter id="turbulence-1">
     <feTurbulence type="fractalNoise" baseFrequency="0.001" numOctaves="2" data-filterId="3" />

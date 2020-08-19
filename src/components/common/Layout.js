@@ -6,6 +6,7 @@ import Img from 'gatsby-image'
 
 import { Navigation, MastText } from '.'
 import { ReactComponent as Turbulence } from '../../filters/turbulence.svg';
+import { ReactComponent as Goo } from '../../filters/goo.svg';
 import config from '../../utils/siteConfig'
 
 // Styles
@@ -41,7 +42,10 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                     {/* The main header section on top of the screen */}
                     <header className="site-head" style={{ ...site.cover_image && { backgroundImage: `url(${site.cover_image})` } }}>
                         <div className="container">
-                            <Turbulence />
+                            <div className="filters">
+                                <Turbulence />
+                                <Goo />
+                            </div>
                             <Link to="/">
                                 <MastText isHome={ isHome }>Aaron Ward</MastText>
                             </Link>

@@ -29,7 +29,6 @@ const Tag = ({ data, location, pageContext }) => {
                         <h1>{tag.name}</h1>
                         {tag.description ? <p>{tag.description}</p> : null }
                     </header>
-                    <Goo />
                     <section className="post-feed">
                         {posts.map(({ node }) => (
                             // The tag below includes the markup for each post - components/common/PostCard.js

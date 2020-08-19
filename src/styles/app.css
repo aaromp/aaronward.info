@@ -583,6 +583,13 @@ h6 {
 /* Layout
 /* ---------------------------------------------------------- */
 
+.filters {
+    visibility: hidden;
+    position: absolute;
+    width: 0;
+    height: 0;
+}
+
 .viewport {
     display: flex;
     flex-direction: column;
@@ -1376,7 +1383,7 @@ code[class*=language-], pre[class*=language-] {
 
 .author-header-meta {
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
     flex-flow: wrap;
     margin: 1rem 0 0 0;
 }
