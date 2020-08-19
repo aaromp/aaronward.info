@@ -58,7 +58,7 @@ const Post = ({ data, location }) => {
                             </figure> : null }
                         <h1 className="content-title">{ post.title }</h1>
                         <section className="post-full-content">
-                            <TableOfContents toc={toc} />
+                            <TableOfContents toc={ toc } url={ post.url }/>
                             {/* The main post content */ }
                             <section
                                 className="content-body load-external-scripts"

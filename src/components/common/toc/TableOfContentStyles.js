@@ -10,16 +10,17 @@ export const TocAside = styled.aside`
         order: 1;
         font-family: var(--font-body);
         color: #78757A;
-        background-color: rgba(255, 255, 255, 0.8);
-        border-radius: 5px;
+        background-color: rgba(239, 237, 249, 1);
+        border-radius: 16px;
         margin: 5.6rem auto 3.2rem auto;
+        padding: 3.2rem 3.2rem 1.6rem 3.2rem;
 
         @media (min-width: 1170px) {
             font-size: 1.4rem;
             line-height: 2.2rem;
             position: sticky;
             top: 12.8rem;
-            min-width: 260px;
+            min-width: 300px;
             padding: 0 2.4rem;
             margin-left: 2.4rem;
             margin-top: 0;
@@ -43,8 +44,8 @@ export const TocTitle = styled.h2`
 `
 export const TocList = styled.ul`
     &&& {
-        overflow:hidden;
-        position:relative;
+        overflow: hidden;
+        position: relative;
         list-style: none;
         margin:0;
         padding:0;
@@ -70,31 +71,34 @@ export const TocItem = styled.li`
 export const TocLink = styled.a`
     &&& {
         height: 100%;
+        display: inline-block;
         box-shadow: none;
-        color: ${props => (props.state.isActive ? `#4B922A` : `inherit`)} !important;
-        border-bottom: ${props => (props.state.isActive ? `1px solid #4B922A` : `none`)};
+        color: ${props => (props.state.isActive ? `#4027BD` : `inherit`)} !important;
         text-decoration: none;
 
         &:hover {
-            color: #4B922A  !important;
-            border-bottom: 1px solid #4B922A;
+            color: #4027BD  !important;
             text-decoration: none;
             box-shadow: none;
         }
 
-        &::before {
-            background-color: #EEE;
-            content:' ';
-            display: inline-block;
-            height: inherit;
-            left: 0;
-            position:absolute;
-            width: 2px;
-            margin-left: 1px;
+        & {
+            position: relative;
+            margin: 0 2rem 0 3.2rem;
+        }
+        @media (max-width: 1170px) {
+            & {
+                position: relative;
+                margin: 0;
+            }
         }
 
         &::before {
-            background-color: ${props => (props.state.isActive ? `#4B922A` : `#EEE`)};
+            content: '👁';
+            position: absolute;
+            top: 0.2rem;
+            left: -4rem;
+            visibility: ${props => (props.state.isActive ? `visible` : `hidden`)};;
         }
     }
 `
