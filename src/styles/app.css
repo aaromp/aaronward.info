@@ -1075,6 +1075,90 @@ code[class*=language-], pre[class*=language-] {
     border-radius: 32px;
 }
 
+/* apparently adding a small rotation to animation helps enable hardware */
+/* acceleration on firefox */
+@keyframes pulse {
+  0%{
+    transform: scale(1) rotate(0.01deg);
+  }
+  100%{
+    transform: scale(1.025) rotate(0.01deg);
+  }
+}
+
+@keyframes pulse-out {
+  0%{
+    transform: scale(1.025) rotate(0.01deg);
+  }
+  100%{
+    transform: scale(1) rotate(0.01deg);
+  }
+}
+/* .post-card-title, .post-card-metadata, .post-card-tags {
+  animation: pulse-out 0.6s ease;
+  animation-direction: normal;
+}
+
+.post-card-title:hover, .post-card-metadata:hover, .post-card-tags:hover {
+  animation: pulse 0.6s ease infinite;
+  animation-direction: alternate;
+} */
+
+/* unfortunately goo only animates well on Chrome and Firefox */
+/* this media query seems to exclude Safari */
+@media screen and
+       (-webkit-min-device-pixel-ratio:0) and
+       (min-resolution:.001dpcm) and
+       (prefers-reduced-motion: no-preference) {
+    .post-card:hover .post-card-tags  {
+        animation: pulse 0.8s ease-in-out -0.3s infinite;
+        animation-direction: alternate;
+    }
+
+    .post-card:hover .post-card-metadata  {
+        animation: pulse 0.8s ease-in-out 0.9s infinite;
+        animation-direction: alternate;
+    }
+
+    .post-card:hover .post-card-title {
+        animation: pulse 0.8s ease-in-out 0.1s infinite;
+        animation-direction: alternate;
+    }
+
+    .post-card .post-card-tags {
+        animation: pulse-out 0.8s ease-in-out;
+        animation-direction: normal;
+    }
+
+    .post-card .post-card-metadata {
+        animation: pulse-out 0.8s ease-in-out;
+        animation-direction: normal;
+    }
+
+    .post-card .post-card-title {
+        animation: pulse-out 0.8s ease-in-out;
+        animation-direction: normal;
+    }
+}
+
+
+
+/* .post-card-title, .post-card-metadata, .post-card-tags {
+  animation: pulse 0.6s ease infinite;
+  animation-direction: alternate;
+} */
+
+@media (min-width: 680px) and (prefers-reduced-motion: no-preference) {
+    .post-card  {
+      transform: rotate(-1.4deg);
+      transition: transform 0.1s ease;
+    }
+
+    .post-card:hover {
+        transform: rotate(0deg) scale(1.05, 1.05);
+        transition: transform 0.1s ease;
+    }
+}
 /* @media (max-width: 980px) {
   .post-card {
       width: 100%;
@@ -1107,11 +1191,6 @@ code[class*=language-], pre[class*=language-] {
     font-size: 1.2rem;
     line-height: 2rem;
     text-transform: uppercase;
-    box-decoration-break: clone;
-    background: var(--color-goo);
-    text-shadow: 0 0 1rem var(--color-goo), 0 0 1rem var(--color-goo),
-                 0 0 1rem var(--color-goo), 0 0 1rem var(--color-goo);
-    filter: url('#goo_svg__goo');
     padding: 1.6rem;
 }
 
@@ -1134,11 +1213,6 @@ code[class*=language-], pre[class*=language-] {
     line-height: 2rem;
     margin: 0;
     padding: 0;
-    box-decoration-break: clone;
-    background: var(--color-goo);
-    text-shadow: 0 0 1rem var(--color-goo), 0 0 1rem var(--color-goo),
-                 0 0 1rem var(--color-goo), 0 0 1rem var(--color-goo);
-    filter: url('#goo_svg__goo');
     padding: 1.6rem  1.6rem 0  1.6rem;
 }
 
@@ -1150,13 +1224,24 @@ code[class*=language-], pre[class*=language-] {
     line-height: 6.4rem;
     margin: 0;
     padding: 0;
-    box-decoration-break: clone;
-    background: var(--color-goo);
-    text-shadow: 0 0 1rem var(--color-goo), 0 0 1rem var(--color-goo),
-                 0 0 1rem var(--color-goo), 0 0 1rem var(--color-goo);
-    filter: url('#goo_svg__goo');
     padding: 0  1.6rem  1.6rem  1.6rem;
 }
+
+.goo {
+    box-decoration-break: clone;
+    background: var(--color-goo);
+    filter: url('#goo_svg__goo');
+}
+
+/* .post-card-title, .post-card-metadata {
+  transform: scale(0.95, 0.95);
+  transition: transform 0.1s ease;
+}
+
+.post-card-title:hover, .post-card-metadata:hover {
+    transform: scale(1, 1);
+    transition: transform 0.1s ease;
+} */
 
 @media (max-width: 680px) {
     .post-card-tags {
