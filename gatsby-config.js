@@ -203,7 +203,7 @@ module.exports = {
             },
         },
         {
-            resolve: `gatsby-plugin-plausible`,
+            resolve: `@aaromp/gatsby-plugin-plausible`,
             options: {
                 customDomain: `data.aaronward.info`,
                 domain: `aaronward.info`,
