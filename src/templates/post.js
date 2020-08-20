@@ -8,14 +8,6 @@ import { MetaData } from '../components/common/meta'
 import { TableOfContents } from '../components/common/toc'
 
 import Prism from 'prismjs'
-import "prismjs/themes/prism-tomorrow.css"
-import "prismjs/plugins/line-numbers/prism-line-numbers.css"
-import "prismjs/plugins/line-numbers/prism-line-numbers.js"
-import "prismjs/plugins/toolbar/prism-toolbar.js"
-import "prismjs/plugins/toolbar/prism-toolbar.css"
-import "prismjs/plugins/show-language/prism-show-language.js"
-import "prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard"
-import "prismjs/plugins/autoloader/prism-autoloader"
 
 import mediumZoom from 'medium-zoom'
 
@@ -28,10 +20,6 @@ import mediumZoom from 'medium-zoom'
 const Post = ({ data, location }) => {
     const post = data.ghostPost
     const toc = post.childHtmlRehype && post.childHtmlRehype.tableOfContents || []
-
-    const html = post.html.replace(
-        new RegExp("<pre><code", "g"), '<pre class="line-numbers"><code'
-    );
 
     useEffect(() => {
         mediumZoom('.kg-image');
@@ -62,7 +50,7 @@ const Post = ({ data, location }) => {
                             {/* The main post content */ }
                             <section
                                 className="content-body load-external-scripts"
-                                dangerouslySetInnerHTML={{ __html: html }}
+                                dangerouslySetInnerHTML={{ __html: post.html }}
                             />
                         </section>
                     </article>
