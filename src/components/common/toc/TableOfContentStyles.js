@@ -9,7 +9,7 @@ export const TocAside = styled.aside`
     && {
         order: 1;
         font-family: var(--font-body);
-        color: #78757A;
+        color: #353535;
         background-color: rgba(239, 237, 249, 1);
         border-radius: 16px;
         margin: 5.6rem auto 3.2rem auto;

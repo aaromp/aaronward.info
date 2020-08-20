@@ -6,7 +6,6 @@ import { Helmet } from 'react-helmet'
 import { Layout } from '../components/common'
 import { MetaData } from '../components/common/meta'
 import { TableOfContents } from '../components/common/toc'
-import { ReactComponent as Turbulence } from '../filters/turbulence.svg';
 
 import Prism from 'prismjs'
 import "prismjs/themes/prism-tomorrow.css"
