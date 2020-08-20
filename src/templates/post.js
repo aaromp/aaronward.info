@@ -15,6 +15,7 @@ import "prismjs/plugins/toolbar/prism-toolbar.js"
 import "prismjs/plugins/toolbar/prism-toolbar.css"
 import "prismjs/plugins/show-language/prism-show-language.js"
 import "prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard"
+import "prismjs/plugins/autoloader/prism-autoloader"
 
 import mediumZoom from 'medium-zoom'
 
@@ -27,7 +28,7 @@ import mediumZoom from 'medium-zoom'
 const Post = ({ data, location }) => {
     const post = data.ghostPost
     const toc = post.childHtmlRehype && post.childHtmlRehype.tableOfContents || []
-    // throw new Error(JSON.stringify(toc))
+
     const html = post.html.replace(
         new RegExp("<pre><code", "g"), '<pre class="line-numbers"><code'
     );

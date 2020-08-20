@@ -13,11 +13,13 @@ const PostCard = ({ post }) => {
             backgroundImage: `url(${post.feature_image})` ,
         }}>
             <header className="post-card-header">
-                {post.tags.length && <div className="post-card-tags goo"> <Tags post={post} visibility="public" autolink={false} /></div>}
-                {post.featured && <span>Featured</span>}
+                {post.tags.length && <div className="post-card-tags goo">
+                    <Tags post={post} visibility="public" autolink={false} />
+                </div>}
+                {post.featured && <span className="post-card-featured goo">📍</span>}
             </header>
             <footer className="post-card-footer">
-                <p className="post-card-metadata goo">{post.published_at_pretty} • {readingTime}</p>
+                <p className="post-card-metadata goo"><span>{post.published_at_pretty}</span> • <span>{readingTime}</span></p>
                 <h2 className="post-card-title goo">{post.title}</h2>
             </footer>
         </Link>
