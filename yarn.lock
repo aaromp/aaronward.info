@@ -2,6 +2,15 @@
 # yarn lockfile v1
 
 
+"@aaromp/gatsby-plugin-plausible@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@aaromp/gatsby-plugin-plausible/-/gatsby-plugin-plausible-1.0.0.tgz#5abde486b84360f98019d5bfadaf1d6a64524a18"
+  integrity sha512-KdAFEBaZKyu3/DOmqwkhtjbEWka5qvJ3hC1sc7xjCQSv0C29NW2AhsOD6e33KaGRwkifEcpCR/noVx8k5o86uw==
+  dependencies:
+    "@babel/runtime" "^7.9.2"
+    minimatch "3.0.4"
+    react "^16.13.1"
+
 "@aaromp/gatsby-source-ghost@2.0.0":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@aaromp/gatsby-source-ghost/-/gatsby-source-ghost-2.0.0.tgz#b174f76cf46b019e5ede5d38d60a1083a78f1342"
@@ -988,7 +997,7 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@7.11.2", "@babel/runtime@^7.0.0", "@babel/runtime@^7.10.2", "@babel/runtime@^7.10.3", "@babel/runtime@^7.11.2", "@babel/runtime@^7.3.4", "@babel/runtime@^7.5.5", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.4":
+"@babel/runtime@7.11.2", "@babel/runtime@^7.0.0", "@babel/runtime@^7.10.2", "@babel/runtime@^7.10.3", "@babel/runtime@^7.11.2", "@babel/runtime@^7.3.4", "@babel/runtime@^7.5.5", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
   version "7.11.2"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.11.2.tgz#f549c13c754cc40b87644b9fa9f09a6a95fe0736"
   integrity sha512-TeWkU52so0mPtDcaCTxNBI/IHiz0pZgr8VEFqXFtZWpYD08ZB6FaSwVAS8MKRQAP3bYKiVjwysOJgMFY28o6Tw==
@@ -9771,7 +9780,7 @@ minimatch@3.0.3:
   dependencies:
     brace-expansion "^1.0.0"
 
-minimatch@^3.0.3, minimatch@^3.0.4:
+minimatch@3.0.4, minimatch@^3.0.3, minimatch@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-3.0.4.tgz#5166e286457f03306064be5497e8dbb0c3d32083"
   integrity sha512-yJHVQEhyqPLUTgt9B83PXu6W3rx4MvvHvSUvToogpwoGDOUQ+yDrR0HRot+yOCdCO7u4hX3pWft6kWBBcqh0UA==
@@ -11902,7 +11911,7 @@ react-style-singleton@^2.1.0:
     invariant "^2.2.4"
     tslib "^1.0.0"
 
-react@16.13.1, react@^16.8.0:
+react@16.13.1, react@^16.13.1, react@^16.8.0:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react/-/react-16.13.1.tgz#2e818822f1a9743122c063d6410d85c1e3afe48e"
   integrity sha512-YMZQQq32xHLX0bz5Mnibv1/LHb3Sqzngu7xstSM+vrkE5Kzr9xE0yMByK5kMoTK30YVJE61WfbxIFFvfeDKT1w==
