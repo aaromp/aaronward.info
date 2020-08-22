@@ -9,7 +9,7 @@ const PostCard = ({ post }) => {
     const readingTime = readingTimeHelper(post)
 
     return (
-        <Link to={url} className="post-card" style={post.feature_image && {
+        <Link to={url} className="post-card" aria-label={`${post.title} post`} style={post.feature_image && {
             backgroundImage: `url(${post.feature_image})` ,
         }}>
             <header className="post-card-header">

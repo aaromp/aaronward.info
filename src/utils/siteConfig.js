@@ -11,6 +11,6 @@ module.exports = {
 
     shortTitle: `Aaron Ward`, // Used for App manifest e.g. Mobile Home Screen
     siteIcon: `favicon.png`, // Logo in /static dir used for SEO, RSS, and App manifest
-    backgroundColor: `#e9e9e9`, // Used for Offline Manifest
-    themeColor: `#15171A`, // Used for Offline Manifest
+    backgroundColor: `#fffffe`, // Used for Offline Manifest
+    themeColor: `#353535`, // Used for Offline Manifest
 }
