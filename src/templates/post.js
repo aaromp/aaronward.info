@@ -22,8 +22,7 @@ const Post = ({ data, location }) => {
     const toc = post.childHtmlRehype && post.childHtmlRehype.tableOfContents || []
 
     useEffect(() => {
-        mediumZoom('.kg-image');
-        mediumZoom('.kg-gallery-image img');
+        mediumZoom('.content-body img[src*="blog.aaronward.info"]');
         Prism.highlightAll();
     });
 
