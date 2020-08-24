@@ -54,9 +54,9 @@ const Post = ({ data, location }) => {
                                 dangerouslySetInnerHTML={{ __html: post.html }}
                             />
                         </section>
-                        <section>
-                            <h1 id="comments">Comments</h1>
-                            <Commento id={post.id} url={config.commentsUrl} />
+                        <section className="commento">
+                          <h1 id="comments">Comments</h1>
+                          <Commento id={post.id} url={config.commentsUrl} />
                         </section>
                     </article>
                 </div>
