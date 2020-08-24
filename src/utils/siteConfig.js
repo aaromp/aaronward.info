@@ -1,5 +1,6 @@
 module.exports = {
     siteUrl: `https://aaronward.info`, // Site domain. Do not include a trailing slash!
+    commentsUrl: `https://comments.aaronward.info`, // Comments domain. Do not include a trailing slash!
 
     postsPerPage: 6, // Number of posts shown on paginated pages (changes this requires sometimes to delete the cache)
 

@@ -1,0 +1,217 @@
+/* App.css
+/* ---------------------------------------------------------- /*
+
+These are just some base styles to get you started. You delete
+these and start over using your toolset of choice, or evolve
+what's here to work the way you'd like it to.
+
+# Table of Contents
+
+- Vars
+- Fonts
+- Reset
+- Defaults
+- Layout
+- Tag Archives
+- Author Archives
+- Pagination
+- Footer
+
+/* Variables
+/* ---------------------------------------------------------- */
+
+:root {
+
+    /* Colors */
+    --color-background: #fffffe; /* page background color */
+    --color-base: #0f0f0f; /* text color */
+    --color-primary-strong: #4B922A; /* update wobble link underline value... */
+    --color-primary-weak: #BFD200;
+    --color-secondary-strong: #4027BD;
+    --color-secondary-weak: #EFEDF9;
+    --color-highlight: #ECF39E;
+    --color-selection: #ECF39E;
+    --color-goo: #fffffe;
+
+    --color-secondary-base: #353535;
+    --color-secondary: #bFd200;
+    --color-border: #e1eaef;
+    --color-success: #80b912;
+    --color-error: #f05230;
+
+    /* Fonts */
+    --font-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    --font-serif: Georgia, Times, serif;
+    --font-mono:  "LeagueMono", Menlo, monospace;
+    --font-title: "Macabre";
+    --font-headline: "Bruphy";
+    --font-body: "Bruphy";
+    --font-light: 200;
+    --font-regular: 400;
+    --font-semibold: 600;
+    --font-bold: 700;
+    --font-black: 800;
+
+    /* Sizes */
+    --height: 4rem;
+    --margin: 2rem;
+    --radius: 0.6rem;
+
+}
+
+/* Commento Overrides
+/* ---------------------------------------------------------- */
+* {
+  font-family: var(--font-body);
+}
+
+.commento-root textarea {
+  border-radius: 16px;
+}
+
+.commento-root .commento-button {
+  box-shadow: none;
+}
+
+.commento-root * {
+  /* font-size: 2rem;
+  line-height: 2.8rem; */
+  color: var(--color-base);
+}
+
+.commento-root .commento-markdown-help tr td pre {
+  font-family: var(--font-mono), monospace;
+}
+
+.commento-root .commento-markdown-help {
+  border: none;
+  background-color: #f1f3f5;
+  border-radius: 16px;
+  border-collapse: separate;
+  padding: 16px;
+}
+
+.commento-root table.commento-markdown-help {
+  /* border-spacing: 16px; */
+}
+
+.commento-root .commento-markdown-button,
+.commento-root .commento-markdown-button b,
+.commento-root .commento-sort-policy-buttons-container .commento-sort-policy-buttons .commento-sort-policy-button {
+  /* font-size: 1.6rem; */
+}
+
+.commento-root .commento-markdown-help tr td,
+.commento-root .commento-markdown-help tr td a,
+.commento-root .commento-markdown-help tr td b,
+.commento-root .commento-markdown-help tr td blockquote,
+.commento-root .commento-markdown-help tr td i,
+.commento-root .commento-markdown-help tr td strike {
+  /* font-size: 1.6rem;
+  line-height: 2.4rem; */
+}
+
+.commento-footer {
+  display: none;
+}
+
+.commento-login-box {
+  border-radius: 16px;
+}
+
+.commento-root .commento-login-box-container .commento-login-box .commento-email-container .commento-email,
+.commento-root .commento-login-box-container .commento-login-box .shadow {
+  box-shadow: none;
+}
+
+.commento-root .commento-login-box-container .commento-login-box .commento-login-box-close {
+  opacity: 0.8;
+}
+
+.commento-root .commento-login-box-container .commento-login-box .commento-login-box-close:after,
+.commento-root .commento-login-box-container .commento-login-box .commento-login-box-close:before {
+  background-color: var(--color-secondary-base) !important;
+}
+
+.commento-root .commento-login-box-container .commento-login-box .commento-login-box-subtitle {
+  color: var(--color-secondary-base);
+}
+
+.commento-root .commento-login-box-container .commento-login-box .commento-email-container .commento-email .commento-email-button,
+.commento-root .commento-login-box-container .commento-login-box .commento-email-container .commento-email .commento-email-button:hover {
+  color: var(--color-primary-strong);
+}
+
+.commento-root a {
+  color: var(--color-primary-strong);
+}
+
+.commento-root .commento-sort-policy-buttons-container .commento-sort-policy-buttons .commento-sort-policy-button-selected {
+  color: var(--color-primary-strong);
+}
+
+.commento-root .commento-submit-button,
+.commento-root .commento-card .commento-moderator::after {
+  background: var(--color-primary-strong);
+}
+
+.commento-root .commento-round-check input[type=checkbox]:checked+label:before,
+.commento-root .commento-round-check input[type=radio]:checked+label:before {
+  background: var(--color-primary-strong);
+  border: 1px solid var(--color-primary-strong);
+}
+
+.commento-root .commento-card a,
+.commento-root .commento-markdown-help a,
+.commento-root .commento-login-box-container .commento-login-box .commento-login-link {
+  color: var(--color-primary-strong);
+  font-weight: var(--font-semibold);
+  text-decoration: none;
+  padding-bottom: 0.15rem;
+  box-shadow: inset 0 -0.125rem var(--color-primary-strong);
+}
+
+.commento-root .commento-card a:hover,
+.commento-root .commento-markdown-help a:hover,
+.commento-root .commento-login-box-container .commento-login-box .commento-login-link:hover{
+  box-shadow: none;
+  background-image: url('/images/wobble.svg');
+  background-position: 0 100%;
+  background-size: auto 0.5rem;
+  background-repeat: repeat-x;
+  padding-bottom: 0.4rem;
+}
+
+.commento-root .commento-avatar {
+  border-radius: 8px;
+}
+
+.commento-root .commento-mod-tools::before {
+  color: var(--color-primary-strong);
+}
+
+/* main comment section */
+.commento-root .commento-comments {
+  background-color: #FFF;
+  border-radius: 16px;
+  /* box-shadow: 0px 2px 5px 0px rgba(0, 52, 102, 0.11) !important; */
+  padding: 16px;
+  margin-top: 16px;
+}
+
+/* a specific comment */
+.commento-root .commento-card {
+  border: none !important;
+  padding-left: 16px;
+}
+
+/* a nested comment */
+.commento-root .commento-card .commento-card {
+  margin-left: 32px;
+  border: none !important;
+}
+
+/* a commenter's name */
+.commento-root .commento-card .commento-name {
+  color: var(--color-secondary-base);
+}

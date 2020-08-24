@@ -3,11 +3,12 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 
-import { Layout } from '../components/common'
+import { Commento, Layout } from '../components/common'
 import { MetaData } from '../components/common/meta'
 import { TableOfContents } from '../components/common/toc'
 
 import Prism from 'prismjs'
+import config from '../utils/siteConfig'
 
 import mediumZoom from 'medium-zoom'
 
@@ -19,7 +20,8 @@ import mediumZoom from 'medium-zoom'
 */
 const Post = ({ data, location }) => {
     const post = data.ghostPost
-    const toc = post.childHtmlRehype && post.childHtmlRehype.tableOfContents || []
+    var toc = post.childHtmlRehype && post.childHtmlRehype.tableOfContents || []
+    toc = toc.concat([{"id":"comments", "heading":"Comments"}]);
 
     useEffect(() => {
         mediumZoom('.content-body img[src*="blog.aaronward.info"]');
@@ -51,6 +53,10 @@ const Post = ({ data, location }) => {
                                 className="content-body load-external-scripts"
                                 dangerouslySetInnerHTML={{ __html: post.html }}
                             />
+                        </section>
+                        <section>
+                            <h1 id="comments">Comments</h1>
+                            <Commento id={post.id} url={config.commentsUrl} />
                         </section>
                     </article>
                 </div>
