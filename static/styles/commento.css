@@ -104,6 +104,9 @@ what's here to work the way you'd like it to.
   appearance: none;
 }
 
+.commento-root .commento-red-border {
+  border: 3px solid rgba(235, 105, 88, 0.69);
+}
 
 .commento-root .commento-button {
   box-shadow: none;
