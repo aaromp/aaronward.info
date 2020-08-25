@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 
-import { Commento, Layout } from '../components/common'
+import { Layout, Talk } from '../components/common'
 import { MetaData } from '../components/common/meta'
 import { TableOfContents } from '../components/common/toc'
 
@@ -21,7 +21,7 @@ import mediumZoom from 'medium-zoom'
 const Post = ({ data, location }) => {
     const post = data.ghostPost
     var toc = post.childHtmlRehype && post.childHtmlRehype.tableOfContents || []
-    toc = toc.concat([{"id":"comments", "heading":"Comments"}]);
+    toc = toc.concat([{"id":"coral_thread", "heading":"Comments"}]);
 
     useEffect(() => {
         mediumZoom('.content-body img[src*="blog.aaronward.info"]');
@@ -54,9 +54,9 @@ const Post = ({ data, location }) => {
                                 dangerouslySetInnerHTML={{ __html: post.html }}
                             />
                         </section>
-                        <section className="commento">
-                          <h1 id="comments">Comments</h1>
-                          <Commento id={post.id} url={config.commentsUrl} />
+                        <section className="talk">
+                          {/*<h1 id="comments">Comments</h1>*/}
+                          <Talk id={post.id} talkURL={config.commentsUrl} storyID={post.title} storyURL={location.href} />
                         </section>
                     </article>
                 </div>

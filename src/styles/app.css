@@ -631,6 +631,7 @@ h6 {
     font-weight: var(--font-regular);
 }
 
+.talk,
 .post-full-content {
     max-width: 720px;
     margin: 0 auto;
