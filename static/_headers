@@ -6,6 +6,9 @@
 /rss.xml
   content-type: application/rss+xml; charset=UTF-8
 
+/fonts/*
+  Access-Control-Allow-Origin: https://comments.aaronward.info/*
+
 # These are default recommended security headers, for Netlify
 # https://www.netlify.com/docs/headers-and-basic-auth/
 
