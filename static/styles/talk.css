@@ -326,6 +326,11 @@ div[role="article"] {
   border: none;
 }
 
+.coral.coral-featuredComment button[data-variant="outlined"] {
+  background-color: var(--color-secondary-strong);
+  color: white;
+}
+
 /* email */
 /* TODO: remove this after email has been configured */
 .coral.coral-verifyEmail {
