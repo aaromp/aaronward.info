@@ -2,7 +2,7 @@
   "presets": ["babel-preset-gatsby"],
   "plugins": [
     ["prismjs", {
-      "languages": ["css", "javascript", "markup", "objectivec", "swift"],
+      "languages": ["bash", "css", "javascript", "markup", "nginx", "objectivec", "swift"],
       "plugins": ["autoloader", "copy-to-clipboard", "show-language", "toolbar"],
       "theme": "tomorrow",
       "css": true

@@ -331,8 +331,8 @@ div[role="article"] {
   color: white;
 }
 
-/* email */
-/* TODO: remove this after email has been configured */
-.coral.coral-verifyEmail {
-  /* display: none; */
+/* share button */
+/* doesn't work well with gatsby routing so disabling */
+.coral.coral-comment-shareButton {
+  display: none;
 }
